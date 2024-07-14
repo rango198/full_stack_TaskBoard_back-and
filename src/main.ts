@@ -3,7 +3,7 @@ import { AppModule } from './app.module';
 import * as coockieParser from 'cookie-parser';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
 
   app.setGlobalPrefix('api');
   app.use(coockieParser());
@@ -13,6 +13,6 @@ async function bootstrap() {
     exposedHeaders: 'set-cookie',
   });
 
-  await app.listen(3001);
+  await app.listen(3000);
 }
 bootstrap();
