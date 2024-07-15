@@ -8,7 +8,7 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
   app.use(coockieParser());
   app.enableCors({
-    origin: ['http://localhost:3000'],
+    origin: ['https://full-stack-taskboard-back-and.onrender.com/api'],
     credentials: true,
     exposedHeaders: 'set-cookie',
   });
