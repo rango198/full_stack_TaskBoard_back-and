@@ -9,7 +9,14 @@ import { PomodoroModule } from './pomodoro/pomodoro.module';
 import { TimeBlockModule } from './time-block/time-block.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(), AuthModule, UserModule, TaskModule, PomodoroModule, TimeBlockModule],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    AuthModule,
+    UserModule,
+    TaskModule,
+    PomodoroModule,
+    TimeBlockModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
