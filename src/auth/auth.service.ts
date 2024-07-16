@@ -91,8 +91,9 @@ export class AuthService {
     res.cookie(this.REFRESH_TOKEN_NAME, refreshToken, {
       httpOnly: true,
       expires: expiresIn,
-      secure: process.env.NODE_ENV === 'production', // Встановити secure лише у виробничому середовищі
-      sameSite: process.env.NODE_ENV === 'production' ? 'lax' : 'none', // lax у продакшн, none у середовищі розробки
+      secure: true,
+      // lax if production
+      sameSite: 'none',
     });
   }
 
@@ -100,8 +101,9 @@ export class AuthService {
     res.cookie(this.REFRESH_TOKEN_NAME, '', {
       httpOnly: true,
       expires: new Date(0),
-      secure: process.env.NODE_ENV === 'production', // Встановити secure лише у виробничому середовищі
-      sameSite: process.env.NODE_ENV === 'production' ? 'lax' : 'none', // lax у продакшн, none у середовищі розробки
+      secure: true,
+      // lax if production
+      sameSite: 'none',
     });
   }
 }
