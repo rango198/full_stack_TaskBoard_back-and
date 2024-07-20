@@ -90,20 +90,22 @@ export class AuthService {
 
     res.cookie(this.REFRESH_TOKEN_NAME, refreshToken, {
       httpOnly: true,
+      domain: 'full-stack-taskboard-back-and.onrender.com',
       expires: expiresIn,
       secure: true,
       // lax if production
-      sameSite: 'lax',
+      sameSite: 'none',
     });
   }
 
   removeRefreshTokenFromResponse(res: Response) {
     res.cookie(this.REFRESH_TOKEN_NAME, '', {
       httpOnly: true,
+      domain: 'full-stack-taskboard-back-and.onrender.com',
       expires: new Date(0),
       secure: true,
       // lax if production
-      sameSite: 'lax',
+      sameSite: 'none',
     });
   }
 }
