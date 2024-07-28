@@ -10,7 +10,7 @@ import { TimeBlockModule } from './time-block/time-block.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot(),
     AuthModule,
     UserModule,
     TaskModule,

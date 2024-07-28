@@ -1,18 +1,18 @@
 import { NestFactory } from '@nestjs/core';
+import * as cookieParser from 'cookie-parser';
 import { AppModule } from './app.module';
-import * as coockieParser from 'cookie-parser';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.setGlobalPrefix('api');
-  app.use(coockieParser());
+  app.use(cookieParser());
   app.enableCors({
-    origin: 'https://full-stack-task-board-front-and.vercel.app',
+    origin: ['http://localhost:3001'],
     credentials: true,
     exposedHeaders: 'set-cookie',
   });
 
-  await app.listen(4000);
+  await app.listen(4200);
 }
 bootstrap();
