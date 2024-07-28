@@ -9,8 +9,10 @@ async function bootstrap() {
   app.use(cookieParser());
   app.enableCors({
     origin: ['https://full-stack-task-board-front-and.vercel.app'],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
-    exposedHeaders: 'set-cookie',
+    allowedHeaders: 'Content-Type, Authorization',
+    exposedHeaders: ['set-cookie'],
   });
 
   await app.listen(4200);
